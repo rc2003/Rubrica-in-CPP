@@ -1,0 +1,346 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    int scelta;
+    int search;
+    string nome= "", cognome= "";
+    string tel= "";
+    string utente = "";
+
+    cout << "Ciao! Come ti chiami? ";
+    cin >> utente;
+    cout << "Ciao " << utente;
+    
+    do
+    {   
+        cout << "\n1 - Nuovo contatto\n";
+        cout << "2 - Cerca contatto\n";
+        cout << "3 - Elimina contatto\n";
+        cout << "4 - Visualizza contatti\n";
+        cout << "5 - Elimina tutti i contatti\n";
+        cout << "6 - Esci\n";
+        cout << "Digita un numero per eseguire -> ";
+        cin >> scelta;
+      
+        switch(scelta)
+        {
+            case 1:
+            {
+                ofstream rubrica;
+            
+                cout << "\nInserisci il nome del contatto -> ";
+                cin >> nome;
+            
+                cout << "Inserisci il cognome del contatto -> ";
+                cin >> cognome;
+            
+                cout << "Inserisci il numero di telefono del contatto -> ";
+                cin >> tel;
+                cout << "\n";
+            
+                rubrica.open("rubrica.txt",ios::app);
+                rubrica << nome << endl;
+                rubrica << cognome << endl;
+                rubrica << tel << endl;
+                cout << "Contatto creato!" << endl;
+                rubrica.close();
+            }
+                break;
+                
+            case 2:
+            {
+                ifstream leggi;
+                leggi.open("rubrica.txt");
+            
+                ofstream posizioni ("posizioni.txt");
+                int posizione = 0;
+            
+                cout << "\n7 - Cerca per nome\n";
+                cout << "8 - Cerca per cognome\n";
+                cout << "9 - Cerca per numero di telefono\n";
+                cin >> search;
+            
+                switch(search)
+                    {
+                        case 7:
+                        {
+                            string chosenname="";
+                            cout << "Che nome devo cercare? " ;
+                            cin >> chosenname;
+                            cout << "\n";
+                            while(!leggi.eof())
+                                {
+                                    getline(leggi, nome);
+                                    getline(leggi, cognome);
+                                    getline(leggi, tel);
+                                    
+                                    posizione++;
+                                    if (nome==chosenname)
+                                        {    
+                                            cout << "Trovato alla posizione " << posizione << endl;
+                                            cout << "\n";
+                                            cout << "Nome: " << nome;
+                                            cout << "\nCognome: " << cognome;
+                                            cout << "\nNumero di telefono: " << tel << endl;
+                            
+                                        }
+                                }
+                        } break;
+                        case 8:
+                        {
+                            string chosensurname="";
+                            cout << "Che cognome devo cercare? ";
+                            cin >> chosensurname;
+                            cout << "\n";
+                            while(!leggi.eof())
+                                {
+                                    getline(leggi, cognome);
+                                    getline(leggi, nome);
+                                    getline(leggi, tel);
+                                    posizione++;
+                                    if (cognome==chosensurname)
+                                        {   
+                                            cout << "\nTrovato alla posizione " << posizione << endl;
+                                            cout << "\n";
+                                            cout << "Nome: " << nome;
+                                            cout << "\nCognome: " << cognome;
+                                            cout << "\nNumero di telefono: " << tel << endl;
+                            
+                                        }
+                                }
+                        } break;
+                        case 9:
+                        {   
+                            string chosentel= "";
+                            cout << "Che numero di telefono devo cercare? ";
+                            cin >> chosentel;
+                            cout << "\n";
+                            while(!leggi.eof())
+                                {
+                                    getline(leggi, tel);
+                                    getline(leggi, cognome);
+                                    getline(leggi, nome);
+                                    posizione++;
+                                    if (tel == chosentel)
+                                        {   
+                                            cout << "\nTrovato alla posizione " << posizione << endl;
+                                            cout << "\n";
+                                            cout << "Nome: " << nome << endl;
+                                            cout << "\nCognome: " << cognome;
+                                            cout << "\nNumero di telefono: " << tel << endl;
+                                        }
+                                }
+                        } break;
+                default:
+                    { 
+                        cout << "\nScelta non valida, digitare un numero tra 7, 8 e 9 -> ";
+                    }
+                } 
+            
+                leggi.close(); posizioni.close();
+            }
+             
+                break;
+                
+            case 3:
+            {
+                ifstream leggi;
+                leggi.open("rubrica.txt");
+            
+                ofstream posizioni ("posizioni.txt");
+                int posizione = 0;
+            
+                cout << "\n7 - Cerca il contatto da eliminare per nome\n";
+                cout << "8 - Cerca il contatto da eliminare per cognome\n";
+                cout << "9 - Cerca il contatto da eliminare per numero di telefono\n";
+                cout << "Digita un numero per eseguire -> ";
+                cin >> search;
+            
+                switch(search)
+                    {
+                        case 7:
+                        {
+                            string chosenname="";
+                            cout << "Che nome devo cercare della cancellazione del contatto? ";
+                            cin >> chosenname;
+                            cout << "\n";
+                            while(!leggi.eof())
+                                {
+                                    getline(leggi, nome);
+                                    getline(leggi, cognome);
+                                    getline(leggi, tel);
+                                    posizione++;
+                                    if (nome==chosenname)
+                                        {
+                                            cout << "Trovato alla posizione " << posizione << endl;
+                                            cout << "\n";
+                                            cout << "Nome: " << nome;
+                                            cout << "\nCognome: " << cognome;
+                                            cout << "\nNumero di telefono: " << tel << endl;
+                            
+                                            posizioni << posizione << endl;
+                                        }
+                                }
+                            } break;
+                        case 8:
+                        {
+                            string chosensurname="";
+                            cout << "Che cognome devo cercare per la cancellazione del contatto? ";
+                            cout << "\n";
+                            cin >> chosensurname;
+                            while(!leggi.eof())
+                                {
+                                    getline(leggi, cognome);
+                                    getline(leggi, nome);
+                                    getline(leggi, tel);
+                                    posizione++;
+                                    if (cognome==chosensurname)
+                                        {
+                                            cout << "Trovato alla posizione " << posizione << endl;
+                                            cout << "\n";
+                                            cout << "Nome: " << nome;
+                                            cout << "\nCognome: " << cognome;
+                                            cout << "\nNumero di telefono: " << tel << endl;
+                            
+                                            posizioni << posizione << endl;
+                                        }
+                                }
+                        } break;
+                        case 9:
+                        {   
+                            string chosentel= "";
+                            cout << "Che numero di telefono devo cercare per la cancellazione del contatto? ";
+                            cin >> chosentel;
+                            cout << "\n";
+                            while(!leggi.eof())
+                                {
+                                    getline(leggi, tel);
+                                    getline(leggi, cognome);
+                                    getline(leggi, nome);
+                                    posizione++;
+                                    if (tel==chosentel)
+                                        {
+                                            cout << "Trovato alla posizione " << posizione << endl;
+                                            cout << "\nNome: " << nome << endl;
+                                            cout << "\nCognome: " << cognome;
+                                            cout << "\nNumero di telefono: " << tel<<endl;
+                            
+                                            posizioni << posizione << endl;
+                                        }
+                                }
+                            } break;
+                default:
+                        { 
+                            cout << "\nScelta non valida, digitare un numero tra 7, 8 e 9 -> \n";
+                        }
+                    } 
+            
+                leggi.close(); posizioni.close();
+            
+                int daeliminare=0;
+                cout <<"Inserisci la posizione da eliminare: ";
+                cin >> daeliminare;
+                cout << "\n";
+            
+                ofstream copia("copia.txt");
+                leggi.open("rubrica.txt");
+            
+                for (int i=0; i<daeliminare-1; i++)
+                    {
+                        getline(leggi, nome);
+                        getline(leggi, cognome);
+                        getline(leggi, nome);
+                
+                        copia << nome << endl;
+                        copia << cognome << endl;
+                        copia << tel << endl;
+                    }
+                
+                getline(leggi, nome);
+                getline(leggi, cognome);
+                getline(leggi, tel);
+                
+                while ( !leggi.eof())
+                    { 
+                        getline(leggi, cognome);
+                        if (cognome != "")
+                            {
+                                getline(leggi, nome);
+                                getline(leggi, tel);
+                
+                                copia << nome << endl;
+                                copia << cognome << endl;
+                                copia << tel << endl;
+                            }
+                    }
+                    
+                leggi.close(); copia.close();
+                
+                remove("rubrica.txt");
+                rename("copia.txt", "rubrica.txt");
+                cout << "\n";
+                cout << "Contatto eliminato!" << endl;
+            }
+                break;
+		
+            case 4:
+            {
+                ifstream leggi;
+                leggi.open("rubrica.txt");
+                cout << "\nRubrica di " << utente << endl;
+                if (leggi)
+                    {
+                        while (!leggi.eof())
+                            {
+                            	
+                                getline(leggi, nome);
+                                if(nome == "")
+                                { 
+                                	break;
+								}else
+								{			
+                                getline(leggi, cognome);
+                                getline(leggi, tel);
+                                cout << "\nNome: " << nome;
+                                cout << "\nCognome: " << cognome;
+                                cout << "\nNumero di telefono: " << tel;
+                                cout << "\n";
+                            	}
+                            }  
+                            
+                        leggi.close();             
+                    }
+                else
+                    cout << "Non ci sono contatti\n";
+                    
+            }
+                break;
+            
+            case 5:
+            {   
+                string conferma = "";
+                cout << "Desideri eliminare tutti i contatti della rubrica? Digita un tasto per confermare -> ";
+                cin >> conferma;
+                remove("rubrica.txt");
+                cout << "\n";
+                cout << "Contatti eliminati!" << endl;
+                    
+            }
+                break;
+                
+            case 6:
+            {
+            }
+                break;
+                
+            default:
+            { 
+                cout << "\nScelta non valida, digitare un numero da 1 a 6 -> \n";
+            }
+                break;
+        }
+    } while(scelta != 6);
+}
