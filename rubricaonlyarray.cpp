@@ -1,10 +1,12 @@
-using namespace std;
+
 #include <iostream>
 #include <string>
+using namespace std;
 
 int main()
 {
 	int a;
+	int scelta;
 	string z;
 	
 	cout<<"Quanti contatti vuoi inserire? (Min 1 Max 20)";
@@ -23,11 +25,22 @@ int main()
 		}
 		
 	}
-	while (true)
+	
+	do
 	{
+	cout << "\n1-Stampa contatti\n";
+	cout << "2-Elimina contatti\n";
+	cout << "3-Aggiungi contatti\n";
+	cout << "4-Esci\n" << endl;
+	cin >> scelta;
+	
+	switch(scelta){
 		
-	}
-	for(int b=0; b<a; b++)
+		
+	case(1):
+	{
+		cout<<"RUBRICA:"<<endl;
+		for(int b=0; b<a; b++)
 	{
 		if (b<a-1)
 		{
@@ -35,13 +48,38 @@ int main()
 		}
 		else
 		{
-			cout<<rubrica[b];
+			cout<<rubrica[b]<<endl;
 		}
-	
 	}
-	cout<<"Vuoi eliminare un contatto";
-	cin>>z;
-	if ()
 		
+	}
+	break;
+	
+	case(2):
+		{
+			
+		}
+	break;
+		
+	case(3):
+		{   string contatto;
+			for(int c=0;c<20;c++)
+			{
+				if (rubrica[c]=="")
+				{
+					cout << "Inserisci Nome Cognome - Numero del contatto: ";
+					cin >> contatto;
+					rubrica[c]= contatto;
+					break;
+				}
+				
+			}
+
+			
+		}
+	break;
+	}
+	
+	}while(true);
 	
 }
