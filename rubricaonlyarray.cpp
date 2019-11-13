@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	int a;
+	int a, indice ;
 	int scelta;
 	string z;
 	
@@ -16,7 +16,8 @@ int main()
 	{
 		if (i<a)
 		{
-			cout<<"Inserisci il contatto (Nome Cognome - Numero)";
+			cout << "DIGITA IL CONTATTO IN BASE A QUESTA DISPOSIZIONE >> NOME,COGNOME:NUMERO DI TELEFONO"<< endl;
+			cout << "Inserisci: ";
 			cin>>rubrica[i];
 		}
 		else
@@ -44,10 +45,14 @@ int main()
 	{
 		if (b<a-1)
 		{
+			cout << b;
+			cout << ") ";
 			cout<<rubrica[b]<<endl;
 		}
 		else
 		{
+			cout << b;
+			cout << ") ";
 			cout<<rubrica[b]<<endl;
 		}
 	}
@@ -57,7 +62,33 @@ int main()
 	
 	case(2):
 		{
+			cout<<"RUBRICA:"<<endl;
+		for(int b=0; b<a; b++){
+			if (b<a){
+			cout << b;
+			cout << ") ";
+			cout<<rubrica[b]<<endl;
+			} else {
+			cout<<rubrica[b]<<endl;
+			}
+		
+		}
+		cout<<"Inserisci l'indice da eliminare: ";
+		cin>>indice;
+		for(int v=indice; v<a; v++)
+		{
+			if(v!=a-1)
+			{
+				rubrica[v]=rubrica[v+1];
+			}
+			else
+			{
+				rubrica[v]="";
+				a--;
+			}
 			
+		}
+		
 		}
 	break;
 		
@@ -67,8 +98,10 @@ int main()
 			{
 				if (rubrica[c]=="")
 				{
-					cout << "Inserisci Nome Cognome - Numero del contatto: ";
+					cout << "DIGITA IL CONTATTO IN BASE A QUESTA DISPOSIZIONE >> NOME,COGNOME:NUMERO DI TELEFONO"<< endl;
+					cout << "Inserisci: ";
 					cin >> contatto;
+					a++;
 					rubrica[c]= contatto;
 					break;
 				}
@@ -80,6 +113,8 @@ int main()
 	break;
 	}
 	
-	}while(true);
 	
+	}while(scelta!=4);
+
+
 }
