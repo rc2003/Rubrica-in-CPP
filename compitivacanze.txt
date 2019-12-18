@@ -1,0 +1,52 @@
+ESERCIZI DI BASE DA SVOLGERE CON PROCEDURE E FUNZIONI
+
+    1. Acquisire 2 valori e restituirne la somma
+PROCEDURE
+        a. INPUT VALORE
+        b. CALCOLO E VISUALIZZAZIONE
+
+    2. Acquisire 2 valori interi positivi e un operatore (+ - / * ^) restituire il risultato dell’operazione relativa.
+PROCEDURE
+        a. INPUT VALORE
+        b. INPUT OPERATORE
+        c. CALCOLO E VISUALIZZAZIONE
+
+    3. Acquisire 2 valori positivi A e B e dire se il secondo  valore è  multiplo del primo oppure no.
+PROCEDURE
+        a. INPUT VALORE
+        b. INDIVIDUAZIONE MULTIPLO
+VISUALIZZ. MESSAGGIO NEL MAIN PROGRAM
+
+    4. Visualizzare il seguente menù finchè l’utente decide di terminare:
+            i. Calcolo del fattoriale di un numero intero positivo
+            ii. Calcolo della potenza N-esima di un numero intero positivo X, con X ed N acquisiti da utente
+PROCEDURE
+        b. INPUT VALORE POSITIVO
+        c. CALCOLO FATTORIALE
+        d. CALCOLO POTENZA
+        e. VISAULIZZAZIONE MENU’ E ACQUISIZIONE SCELTA UTENTE
+        f. GESTIONE SCELTA UTENTE
+
+    5. Scrivere un programma che
+
+    a) acquisisca due interi positivi (utilizzando una procedura INS di acquisizione e controllo di una variabile da richiamare 2 volte);
+    b) richiami e sviluppi la procedura CALC1 per il calcolo del prodotto dei primi X numeri interi positivi (1*2*...*X)
+    c) richiami e sviluppi la procedura CALC2 per il calcolo della potenza 3^Y mediante prodotti successivi (cioè come prodotto di Y fattori uguali a 3);
+    d) richiami e sviluppi la procedura RAPP per il calcolo del rapporto tra il valore prodotto dalla procedura CALC1 e il valore prodotto dalla procedura CALC2.
+    e) visualizzi il valore prodotto dalla procedura RAPP.
+
+    1) Caricare 20 numeri in un vettore e successivamente eseguire sul vettore in sequenza le seguenti operazioni:
+    • visualizzare i numeri pari del vettore;
+    • visualizzare i numeri che occupano posto pari nel vettore
+    • aggiungere un’unità ai numeri positivi e sottrarre un’unità ai negativi;
+    • visualizzare il nuovo vettore ottenuto
+    • acquisire una posizione di un elemento e, dopo aver controllato che è presente nel vettore, visualizzarne  il contenuto
+    • dire quanti valori del vettore sono superiori alla loro media;
+    • visualizzare quali valori del vettore sono superiori alla loro media;
+    • scambiare il primo e l’ultimo valore del vettore
+    • visualizzare il valore maggiore presente nel vettore
+    • visualizzare la/le posizioni che occupa il valore maggiore
+
+usare nel modo opportuno procedure e funzioni
+
+
