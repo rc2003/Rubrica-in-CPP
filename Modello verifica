@@ -5,8 +5,8 @@ int N, S;
 int main(){
 	
 //SCRITTURA SU FILE
-	freopen("inputs/01.txt", "r", stdin);
-	freopen("outputs/01.txt", "w", stdout);
+	freopen("input/1.txt", "r", stdin);
+	freopen("output/1.txt", "w", stdout);
 	scanf("%d", &N);
 	int A[N];
 
@@ -20,7 +20,6 @@ for(int z=0; z<N; z++){
 
 //SCRITTURA SU FILE OUTPUT
 printf("%d", S);
-return 0;
 
 //RICORDA DI METTERE TUTTI I FILE NELLA STESSA CARTELLA
 
