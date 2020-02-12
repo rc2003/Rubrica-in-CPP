@@ -1,0 +1,44 @@
+#include <iostream>
+#include <stdio.h>
+
+using namespace std;
+
+int main(){
+	int pesi[100]; 
+	int min = 1000; 
+	int max = 1;
+	int temp;
+	
+	freopen("pesi.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+	
+	for(int i=0; i<10; i++){
+		scanf("%d", &pesi[i]);
+		if(pesi[i] <= min){
+			min = pesi[i];
+		}
+		else if(pesi[i] >= max){
+			max = pesi[i];
+		}	
+	}
+	printf("%d\n", max);
+	printf("%d\n", min);
+	
+	for(int j=0; j<9; j++){
+		
+		for(int z=0; z<9; z++){
+			
+			if(pesi[z]>pesi[z+1]){
+				
+				temp=pesi[z];
+				pesi[z]=pesi[z+1];
+				pesi[z+1]=temp;
+			}
+		}
+	};
+	
+	for(int y=0; y<10; y++){
+		printf("%d ", pesi[y]);
+	};
+	return 0;	
+}
